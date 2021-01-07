@@ -15,9 +15,9 @@
 
 * CSS
     01. [What are they?](https://sohyeon-oh.netlify.app/#/HTML-CSS/css%ED%8A%B9%EC%84%B1)
-    * -moz-apperance: none;
-    * -webkit-appearance: none;
-    * appearance: none;
-    * 선택자:nth-of-type(number)
-    * 선택자:not
-    * cursor ()
+    * ~~-moz-apperance: none;~~
+    * ~~-webkit-appearance: none;~~
+    * ~~appearance: none;~~
+    * ~~선택자:nth-of-type(number)~~
+    * ~~선택자:not~~
+    * ~~cursor ()~~
