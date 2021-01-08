@@ -5,7 +5,7 @@ const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
 
-const ticketPrice = +(movieSelect.value); //+붙이으로써 number로 만들 수 있다.
+let ticketPrice = +(movieSelect.value); //+붙이으로써 number로 만들 수 있다.
 
 //update total and count
 const updateSelectedCount = () => {
@@ -15,6 +15,13 @@ const updateSelectedCount = () => {
     count.innerText = selectedSeatsCount;
     total.innerText = ticketPrice * selectedSeatsCount;
 }
+//Movie select event
+movieSelect.addEventListener('change', e => {
+    ticketPrice = +e.target.value;
+    updateSelectedCount();
+})
+
+// Seat click event
 container.addEventListener('click', (e) => {
     if(e.target.classList.contains('seat') && !e.target.classList.contains('occupied')){
         e.target.classList.toggle('selected');
