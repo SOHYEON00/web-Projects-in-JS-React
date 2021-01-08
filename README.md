@@ -4,8 +4,10 @@
 <br/><br/>
 
 #### 추가하고 싶은 것
-- Semantic tags instead of <div>
-- 영화관 좌석 개수 조정
+- Semantic tags instead of div tags
+    - div 대신 section tag 추가
+    - 2개의 section이 생겨서 class 추가하여 구분
+
 - 영화 선택 후 좌석 클릭 가능하게
 - 왼쪽에 클릭한 영화와 좌석번호 출력
 - 리셋 버튼

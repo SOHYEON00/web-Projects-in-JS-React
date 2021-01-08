@@ -20,6 +20,17 @@ body{
     margin: 20px 0; 
 }
 
+button {
+    border: none;
+    background-color: #242333; 
+    color: white;
+}
+
+button:hover{
+    color: red;
+    cursor: pointer;
+}
+
 .movie-container select{
     background-color: white;
     border: 0;
@@ -32,7 +43,7 @@ body{
     appearance: none;
 }
 
-container {
+.seat-section {
     perspective: 1000px;
     margin-bottom: 30px;
 }
@@ -47,7 +58,7 @@ container {
 }
 
 .seat.selected {
-    background-color: #6feaf6;
+    background-color: #eb1333;
 }
 
 .seat.occupied {
@@ -82,7 +93,7 @@ container {
     margin-left: 2px;
 }
 
-container .seat:not(.occupied):hover {
+section .seat:not(.occupied):hover {
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -104,5 +115,5 @@ p.text {
 }
 
 p.text span {
-    color: #6feaf6;
+    color: #f7a6b2;
 }
