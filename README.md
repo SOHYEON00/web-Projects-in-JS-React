@@ -5,15 +5,19 @@
 
 #### 추가하고 싶은 것
 - Semantic tags instead of <div>
-- .row (좌석) 자바스크립트로 추가
-- CSS로 한 것들을 JS로 하면 더 재미있을 것 같다.
-- container에 이벤트를 넣는 것과 seats에 이벤트를 넣는 것 중에 어떤 게 성능이 더 좋을까? 
+- 영화관 좌석 개수 조정
+- 영화 선택 후 좌석 클릭 가능하게
+- 왼쪽에 클릭한 영화와 좌석번호 출력
+- 리셋 버튼
 
 <br/>
 
 #### Questions
+
+* container에 이벤트를 넣는 것과 seats에 이벤트를 넣는 것 중에 어떤 게 성능이 더 좋을까?
+
 * HTML
-    * <small>
+    * small 태그
 
 <br/>
 
