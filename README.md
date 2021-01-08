@@ -28,5 +28,6 @@
 <br/>
 
 * Javascript
-    * ckassList.toggle()
+    * ckassList.toggle()  
         classList.toggle(): 클래스값이 있는지 체크하고 없으면 더하고 있으면 제거한다.
+    * <select>.selectedIndex
