@@ -63,6 +63,7 @@ main{
 }
 
 .seat {
+    cursor: pointer;
     background-color: white;
     height: 20px;
     width: 25px;
@@ -146,6 +147,6 @@ button {
 }
 
 button:hover{
-    color: red;
+    background-color: green;
     cursor: pointer;
 }

@@ -2,8 +2,7 @@ const infoContainer = document.querySelector('#info-container');
 const infoSelectedMovie = document.querySelector('#selected-movie');
 const infoSelectedSeats = document.querySelector('#selected-seats');
 const seatContainer = document.querySelector('.seat-section');
-const rowSeats = document.querySelectorAll('.row .seat');  
-const seats = document.querySelectorAll(".row .seat:not(.occupied)");
+const seats = document.querySelectorAll(".row .seat");
 //.row .seat : showcase에 있는 seat는 빼고 실제 좌석만 포함
 const count = document.getElementById("count");
 const total = document.getElementById("total");
@@ -41,7 +40,7 @@ const updateSelectedCount = () => {
 
 //write seat's number
 function writeSeatNumber() {
-  rowSeats.forEach((e,i) => {
+  seats.forEach((e,i) => {
     (i < 10) ? e.innerText = `0${i}` : e.innerText = i;
   })
 }
