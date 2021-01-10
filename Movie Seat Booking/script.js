@@ -1,9 +1,13 @@
-const container = document.querySelector('.seat-section');
+const infoContainer = document.querySelector('#info-container');
+const infoSelectedMovie = document.querySelector('#selected-movie');
+const infoSelectedSeats = document.querySelector('#selected-seats');
+const seatContainer = document.querySelector('.seat-section');
 const seats = document.querySelectorAll(".row .seat:not(.occupied)");
 //.row .seat : showcase에 있는 seat는 빼고 실제 좌석만 포함
 const count = document.getElementById("count");
 const total = document.getElementById("total");
 const movieSelect = document.getElementById("movie");
+const resetBtn = document.querySelector('#reset-btn');
 
 populateUI();
 
@@ -29,6 +33,8 @@ const updateSelectedCount = () => {
 
   count.innerText = selectedSeatsCount;
   total.innerText = ticketPrice * selectedSeatsCount;
+
+  populateUI(); //선택한 값 즉시 info-container에 반영
 };
 
 // Get data(selected seats & movie info) from localstorage and populate UI
@@ -41,14 +47,22 @@ function populateUI() { //로드되자마자 함수실행을 위해 함수선언
         seat.classList.add("selected");
       }
     });
+    infoSeatsText = selectedSeats; //object to text
+    infoSelectedSeats.innerText = infoSeatsText;
+  } 
+  else { //없는 경우, info컨테이너 글씨 표시
+    infoSelectedSeats.innerText = '선택한 좌석이 없습니다.';
   }
 
   const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
   if(selectedMovieIndex !== null) {
       movieSelect.selectedIndex = selectedMovieIndex; 
+      infoSelectedMovie.innerText = movieSelect[selectedMovieIndex].innerText;
+  }
+  else {
+    infoSelectedMovie.innerText = '선택한 영화가 없습니다.';
   }
 }
-
 
 //Movie select event
 movieSelect.addEventListener("change", (e) => {
@@ -59,8 +73,7 @@ movieSelect.addEventListener("change", (e) => {
 });
 
 // Seat click event
-container.addEventListener("click", (e) => {
-  console.log(e.target);
+seatContainer.addEventListener("click", (e) => {
   if (
     e.target.classList.contains("seat") &&
     !e.target.classList.contains("occupied")
@@ -70,6 +83,19 @@ container.addEventListener("click", (e) => {
     updateSelectedCount(); //seat의 정보에 변화가 생겼으므로 count에 변화주는 새로운 함수 실행
   }
 });
+
+//Reset button click event
+resetBtn.addEventListener("click", () => {
+  //Alert for confirmaaion
+  const result = confirm('현재까지 선택한 예약정보를 리셋하시겠습니까?');
+  if(result){
+    //ls.clear()
+    alert('현재까지 선택한 예약정보가 사라집니다.');
+    localStorage.clear();
+
+    location.reload();
+  }
+})
 
 //Initial count and total set
 updateSelectedCount();

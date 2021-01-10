@@ -20,17 +20,6 @@ body{
     margin: 20px 0; 
 }
 
-button {
-    border: none;
-    background-color: #242333; 
-    color: white;
-}
-
-button:hover{
-    color: red;
-    cursor: pointer;
-}
-
 .movie-container select{
     background-color: white;
     border: 0;
@@ -41,6 +30,31 @@ button:hover{
     -moz-apperance: none;
     -webkit-appearance: none;
     appearance: none;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+    margin: 20px 0;
+}
+
+#info-container{
+    background-color: white;
+    color: black;
+    width: 40%;
+}
+
+#info-container h2{
+    width: 100%;
+    text-align: center;
+}
+
+.info-section{
+    margin-left: 5px;
+    overflow: auto;
 }
 
 .seat-section {
@@ -116,4 +130,19 @@ p.text {
 
 p.text span {
     color: #f7a6b2;
+}
+
+/* Reset button */
+button {
+    border: none;
+    border-radius: 8px;
+    background-color: #bf1b36; 
+    color: white;
+    padding: 4px 6px;
+    margin: 20px 0;
+}
+
+button:hover{
+    color: red;
+    cursor: pointer;
 }
