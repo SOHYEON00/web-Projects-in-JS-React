@@ -4,14 +4,14 @@
 <br/><br/>
 
 #### 추가하고 싶은 것
-- Semantic tags instead of div tags
+- ✔ Semantic tags instead of div tags
     - div 대신 section tag 추가
     - 2개의 section이 생겨서 class 추가하여 구분
+    - main > article > section 
 
-- 좌석 번호 지정
-- 왼쪽에 클릭한 영화와 좌석번호 출력
-- ~~리셋 버튼~~
-- ***예매 버튼 기능***
+- ✔ 좌석 번호 지정
+- ✔ 왼쪽에 클릭한 영화와 좌석번호 출력
+- ✔ 리셋 버튼
 
 <br/>
 

@@ -2,6 +2,7 @@ const infoContainer = document.querySelector('#info-container');
 const infoSelectedMovie = document.querySelector('#selected-movie');
 const infoSelectedSeats = document.querySelector('#selected-seats');
 const seatContainer = document.querySelector('.seat-section');
+const rowSeats = document.querySelectorAll('.row .seat');  
 const seats = document.querySelectorAll(".row .seat:not(.occupied)");
 //.row .seat : showcase에 있는 seat는 빼고 실제 좌석만 포함
 const count = document.getElementById("count");
@@ -9,6 +10,7 @@ const total = document.getElementById("total");
 const movieSelect = document.getElementById("movie");
 const resetBtn = document.querySelector('#reset-btn');
 
+writeSeatNumber();
 populateUI();
 
 let ticketPrice = +movieSelect.value; //+붙임으로써 number로 만들 수 있다.
@@ -36,6 +38,13 @@ const updateSelectedCount = () => {
 
   populateUI(); //선택한 값 즉시 info-container에 반영
 };
+
+//write seat's number
+function writeSeatNumber() {
+  rowSeats.forEach((e,i) => {
+    (i < 10) ? e.innerText = `0${i}` : e.innerText = i;
+  })
+}
 
 // Get data(selected seats & movie info) from localstorage and populate UI
 function populateUI() { //로드되자마자 함수실행을 위해 함수선언문으로 작성
