@@ -43,17 +43,21 @@ main{
 
 #info-container{
     background-color: white;
+    border-radius: 15px;
     color: black;
     width: 40%;
+    padding: 10px;
 }
 
 #info-container h2{
     width: 100%;
+    margin-top: 5px;
     text-align: center;
 }
 
 .info-section{
-    margin-left: 5px;
+    width: 100%;
+    text-align: center;
     overflow: auto;
 }
 

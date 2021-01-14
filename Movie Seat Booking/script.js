@@ -23,9 +23,6 @@ const setMovieData = (movieIndex, moviePrice) => {
 //update total and count
 const updateSelectedCount = () => {
   const currentSelectedSeats = document.querySelectorAll(".row .seat.selected"); //현재 선택된 좌석이 nodeList 형태로 반환
-
-  //Copy selected seats into arr
-  // Map through array
   const seatsIndex = [...currentSelectedSeats].map((seat) => [...seats].indexOf(seat)); //convert node List to normal array
 
   localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex)); //현재 페이지에서 선택된 좌석인덱스를 로컬스토리지에 저장
