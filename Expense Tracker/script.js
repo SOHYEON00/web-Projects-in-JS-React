@@ -31,25 +31,27 @@ const addTransactionDOM = (transaction) => {
 
     list.appendChild(item);
 }
-
 // Update the balance, income and expense
 const updateValues = () => {
     const amounts = transactions.map(e => e.amount);
 
-    const totalAmount = amounts.reduce((acc, item) => (acc += item), 0); //소수점 2자리수로 유지
-
-    const income = amounts
+    const totalAmount = numToString(amounts.reduce((acc, item) => (acc += item), 0)); 
+    const income = numToString(amounts
       .filter((e) => e > 0)
-      .reduce((acc, item) => (acc += item), 0)
+      .reduce((acc, item) => (acc += item), 0))
       ;
-
-    const expense = (amounts
+    const expense = numToString(amounts
         .filter((e) => e < 0)
         .reduce((acc, item) => (acc += item), 0) * -1);
+
     
     balance.innerText = `${totalAmount}원`;
     moneyPlus.innerText = `${income}원`;
     moneyMinus.innerText = `${expense}원`;
+}
+
+const numToString = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 // Init app
