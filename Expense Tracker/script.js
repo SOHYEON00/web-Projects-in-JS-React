@@ -32,11 +32,32 @@ const addTransactionDOM = (transaction) => {
     list.appendChild(item);
 }
 
+// Update the balance, income and expense
+const updateValues = () => {
+    const amounts = transactions.map(e => e.amount);
+
+    const totalAmount = amounts.reduce((acc, item) => (acc += item), 0); //소수점 2자리수로 유지
+
+    const income = amounts
+      .filter((e) => e > 0)
+      .reduce((acc, item) => (acc += item), 0)
+      ;
+
+    const expense = (amounts
+        .filter((e) => e < 0)
+        .reduce((acc, item) => (acc += item), 0) * -1);
+    
+    balance.innerText = `${totalAmount}원`;
+    moneyPlus.innerText = `${income}원`;
+    moneyMinus.innerText = `${expense}원`;
+}
+
 // Init app
 function init() {
     list.innerHTML = '';
 
     transactions.forEach(e => addTransactionDOM(e));
+    updateValues();
 }
 
 init();
