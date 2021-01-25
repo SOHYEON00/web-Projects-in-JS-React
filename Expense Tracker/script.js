@@ -15,6 +15,33 @@ const dummyTransactions = [
 
 let transactions = dummyTransactions;
 
+// Add transaction 
+const addTransaction = (e) => {
+    e.preventDefault();
+
+    if(text.value.trim() === '' || amount.value.trim() === ''){
+        alert('Please add a text and amount');
+    } else {
+        const transaction = {
+            id: generateID(),
+            text: text.value,
+            amount: parseInt(amount.value),
+        };
+        transactions.push(transaction);
+
+        addTransactionDOM(transaction);
+
+        updateValues();
+
+        text.value = '';
+        amount.value = '';
+    }
+}
+
+const generateID = () => {
+    return Math.floor(Math.random() * 100000000);
+}
+
 // Add transactions to DOM list
 const addTransactionDOM = (transaction) => {
     // Get sign
@@ -26,15 +53,16 @@ const addTransactionDOM = (transaction) => {
     item.classList.add((transaction.amount < 0) ? 'minus' : 'plus');
 
     item.innerHTML = `
-    ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span><button class="delete-btn">X</button>
+    ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span><button class="delete-btn" onclick="removeTransaction(${transaction.id})">X</button>
     `;
 
     list.appendChild(item);
+    
 }
 // Update the balance, income and expense
 const updateValues = () => {
     const amounts = transactions.map(e => e.amount);
-
+    console.log(amounts);
     const totalAmount = numToString(amounts.reduce((acc, item) => (acc += item), 0)); 
     const income = numToString(amounts
       .filter((e) => e > 0)
@@ -54,6 +82,13 @@ const numToString = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+// Remove transaction by ID
+const removeTransaction = (id) => {
+    transactions = transactions.filter(e => e.id !== id);
+
+    init();
+}
+
 // Init app
 function init() {
     list.innerHTML = '';
@@ -63,3 +98,5 @@ function init() {
 }
 
 init();
+
+form.addEventListener('submit', addTransaction);
