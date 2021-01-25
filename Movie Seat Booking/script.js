@@ -100,7 +100,7 @@ resetBtn.addEventListener("click", () => {
 
     location.reload();
   }
-})
+});
 
 //Initial count and total set
 updateSelectedCount();
